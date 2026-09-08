@@ -30,11 +30,12 @@ context.window.cpAdaptiveNext=()=>{};
 vm.createContext(context);
 vm.runInContext(source,context,{filename:'answer-flow-guard.js'});
 
-for(const id of ids){context.record({contest:id,id:`test-${id}`},true);if(document.getElementById('daysTCESP'))throw new Error(`ghost daysTCESP não removido após ${id}`)}
+if(!document.getElementById('daysTCESP'))throw new Error('compatibilidade daysTCESP não criada no boot');
+for(const id of ids){context.record({contest:id,id:`test-${id}`},true);if(!document.getElementById('daysTCESP'))throw new Error(`daysTCESP não persistiu após ${id}`)}
 if(originalCalls!==ids.length)throw new Error(`record chamado ${originalCalls} vezes; esperado ${ids.length}`);
 
 context.window.cpAdaptiveAnswer(0);
 const feedback=document.getElementById('adaptiveFeedback');
 if(!feedback||!feedback.innerHTML.includes('Próxima questão'))throw new Error('Fallback não criou botão Próxima questão');
 
-console.log(`Answer-flow smoke test OK for ${ids.length} trilhas; Próxima questão presente.`);
+console.log(`Answer-flow smoke test OK for ${ids.length} trilhas; compatibilidade persistente e Próxima questão presentes.`);
