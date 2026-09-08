@@ -1,0 +1,9 @@
+{
+  "name":"ConcursosPro — Estudar para TCESP 2026",
+  "short_name":"ConcursosPro",
+  "start_url":"./index.html",
+  "display":"standalone",
+  "background_color":"#f4f6fa",
+  "theme_color":"#111827",
+  "lang":"pt-BR"
+}
