@@ -1,0 +1,16 @@
+{
+  "concurso":"TCESP 2026",
+  "edital":"001/2026",
+  "cargo":"Auditor de Controle Externo – DIPE",
+  "banca":"VUNESP",
+  "vagas":50,
+  "salario_inicial":"R$ 20.940,20",
+  "inscricoes":"13/07/2026 a 11/08/2026",
+  "prova":"11/10/2026",
+  "objetiva":{"questoes":80,"tipo":"múltipla escolha"},
+  "conhecimentos_gerais":["Língua Portuguesa","Raciocínio Lógico e Analítico","Ética Pública e Integridade","Legislação"],
+  "especialidades":{"Ciências Atuariais":2,"Ciências Contábeis":11,"Ciências Econômicas":10,"Direito":10,"Engenharia Civil":12,"Tecnologia da Informação":5},
+  "etapa_escrita":"Estudo de caso relacionado à especialidade",
+  "fontes_oficiais":["https://www.tce.sp.gov.br/6524-tcesp-abre-concurso-publico-para-auditor-controle-externo-com-oferta-50-vagas","https://www.tce.sp.gov.br/concursos"],
+  "observacao":"Metadados oficiais. A distribuição detalhada por tópicos deve ser validada contra o edital integral e retificações antes de ser usada como peso definitivo."
+}
