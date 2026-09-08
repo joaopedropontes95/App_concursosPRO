@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "politica": "Banco de treino original/adaptado. Provas oficiais são usadas como referência de estrutura, incidência e dificuldade; textos integrais de questões de terceiros não são republicados.",
+  "limite_historico": 5,
+  "matriz_tcesp_2026": {
+    "objetiva": 80,
+    "gerais": {"Língua Portuguesa": 12, "Raciocínio Lógico e Analítico": 4, "Ética Pública e Integridade": 2, "Legislação": 2},
+    "especificos": 60,
+    "observacao": "O edital define 60 questões específicas, mas não fixa no texto consultado uma distribuição pública por subdisciplina; a seleção específica usa ponderação empírica."
+  },
+  "provas_referencia": [
+    {"ano": 2025, "concurso": "TCESP Auditor de Controle Externo / Administração", "banca": "VUNESP", "peso": 1.0, "oficial": "https://www.tce.sp.gov.br/concursos/auditor-controle-externo-e-auditor-controle-externo-administracao"},
+    {"ano": 2023, "concurso": "TCESP Técnico de Controle Externo-TI / Auditor de Controle Externo-TI", "banca": "VUNESP", "peso": 0.65, "oficial": "https://www.tce.sp.gov.br/concursos/tecnico-controle-externo-ti-auditor-controle-externo-ti"},
+    {"ano": 2017, "concurso": "TCESP Agente da Fiscalização / Administração", "banca": "VUNESP", "peso": 0.25, "oficial": "https://www.tce.sp.gov.br/concursos"}
+  ],
+  "questoes": " + json.dumps(questions,ensure_ascii=False) + "
+}
