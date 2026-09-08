@@ -1,0 +1,95 @@
+{
+  "versao": "1.0.0",
+  "atualizado_em": "2026-09-08",
+  "regra_de_retencao": {
+    "maximo_de_provas": 5,
+    "criterio": "somente as 5 provas/conjuntos de prova mais recentes relevantes encontrados nas fontes oficiais do TCESP",
+    "observacao": "O concurso de 2026 ainda não possui prova aplicada. As provas históricas servem para calibrar estilo, incidência e dificuldade; legislação e conteúdo jurídico devem ser revalidados pelo edital/retificações de 2026."
+  },
+  "uso": {
+    "permitido": [
+      "extrair estrutura da prova",
+      "mapear disciplinas, assuntos e subassuntos",
+      "medir incidência e dificuldade",
+      "calibrar quantidade de alternativas, extensão dos enunciados e perfil da banca",
+      "usar questões como referência para criação de questões originais/adaptadas"
+    ],
+    "nao_republicar": [
+      "texto integral das questões",
+      "alternativas integrais de questões protegidas",
+      "bancos de questões de terceiros"
+    ],
+    "fonte_preferencial": "documentos oficiais do TCESP/VUNESP; QConcursos somente como índice e apoio estatístico"
+  },
+  "provas": [
+    {
+      "ordem": 1,
+      "ano": 2025,
+      "concurso": "Auditor de Controle Externo e Auditor de Controle Externo-Administração",
+      "data_prova": "2025-06-15",
+      "banca": "VUNESP",
+      "cargo": "Auditor de Controle Externo",
+      "tipo": "objetiva",
+      "observacao": "Principal referência recente para o perfil de Auditor do TCESP. A página oficial disponibiliza o caderno de prova e gabarito.",
+      "url_oficial": "https://www.tce.sp.gov.br/concursos/auditor-controle-externo-e-auditor-controle-externo-administracao",
+      "arquivo_prova_oficial": "Convocação_para_Provas.pdf",
+      "arquivo_gabarito_oficial": "Gabarito das Provas.pdf"
+    },
+    {
+      "ordem": 2,
+      "ano": 2025,
+      "concurso": "Auditor de Controle Externo e Auditor de Controle Externo-Administração",
+      "data_prova": "2025-06-15",
+      "banca": "VUNESP",
+      "cargo": "Auditor de Controle Externo - Administração",
+      "tipo": "objetiva",
+      "observacao": "Segundo conjunto mais recente do mesmo certame; útil para comparar distribuição, linguagem e nível de cobrança do núcleo comum.",
+      "url_oficial": "https://www.tce.sp.gov.br/concursos/auditor-controle-externo-e-auditor-controle-externo-administracao",
+      "arquivo_prova_oficial": "Convocação_para_Provas.pdf",
+      "arquivo_gabarito_oficial": "Gabarito das Provas.pdf"
+    },
+    {
+      "ordem": 3,
+      "ano": 2023,
+      "concurso": "Técnico de Controle Externo-TI - Auditor de Controle Externo-TI",
+      "data_prova": "2023-11-26",
+      "banca": "FGV",
+      "cargo": "Agente da Fiscalização - TI",
+      "tipo": "objetiva",
+      "observacao": "Referência histórica de estilo e dificuldade do TCESP. O caderno oficial tem 80 questões, cinco alternativas e uma única correta. Não será usado para inferir legislação vigente de 2026.",
+      "url_oficial": "https://tce.sp.gov.br/concursos/tecnico-controle-externo-ti-auditor-controle-externo-ti",
+      "arquivo_prova_oficial": "Prova Agente da Fiscalização - TI Tipo 1.pdf"
+    },
+    {
+      "ordem": 4,
+      "ano": 2023,
+      "concurso": "Técnico de Controle Externo-TI - Auditor de Controle Externo-TI",
+      "data_prova": "2023-11-26",
+      "banca": "FGV",
+      "cargo": "Auxiliar Técnico da Fiscalização - TI",
+      "tipo": "objetiva",
+      "observacao": "Segundo caderno de cargo do certame de 2023, mantido apenas como referência complementar de formato e dificuldade.",
+      "url_oficial": "https://tce.sp.gov.br/concursos/tecnico-controle-externo-ti-auditor-controle-externo-ti",
+      "arquivo_prova_oficial": "Prova Auxiliar Técnico da Fiscalização - TI Tipo 1.pdf"
+    },
+    {
+      "ordem": 5,
+      "ano": 2017,
+      "concurso": "Agente da Fiscalização e Agente da Fiscalização - Administração",
+      "data_prova": "2017-12-17",
+      "banca": "VUNESP",
+      "cargo": "Agente da Fiscalização / Administração",
+      "tipo": "objetiva",
+      "observacao": "Último certame oficial anterior a 2023 listado pelo TCESP. O portal atual disponibiliza o gabarito e os documentos do certame; será usado apenas como referência histórica, com peso muito baixo.",
+      "url_oficial": "https://tce.sp.gov.br/concursos/agente-fiscalizacao-e-agente-fiscalizacao-administracao",
+      "arquivo_gabarito_oficial": "gabarito_provas_objetivas.pdf"
+    }
+  ],
+  "regra_de_peso": {
+    "2026_edital_e_retificacoes": 1.0,
+    "2025_tcesp_vunesp": 0.85,
+    "2023_tcesp": 0.45,
+    "2017_tcesp": 0.15,
+    "observacao": "Os pesos servem para priorização estatística. Conteúdo normativo não é herdado automaticamente das provas antigas."
+  }
+}
