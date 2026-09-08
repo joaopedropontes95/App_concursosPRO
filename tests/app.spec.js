@@ -15,7 +15,7 @@ async function boot(page) {
   page.on('pageerror', e => pageErrors.push(String(e.message || e)));
   await page.goto('/?qa=1', { waitUntil: 'domcontentloaded' });
   await page.waitForURL(/app\.html/, { timeout: 15000 });
-  await page.waitForFunction(() => typeof window.cpOpenTrack === 'function' && typeof window.cpStartAdaptiveUnit === 'function', null, { timeout: 15000 });
+  await page.waitForFunction(() => typeof window.cpOpenTrack === 'function' && typeof window.cpStartAdaptiveUnit === 'function' && window.__cpStableAdaptiveStart === true && window.__cpStableErrors === true, null, { timeout: 15000 });
   return pageErrors;
 }
 
@@ -50,11 +50,7 @@ test('home follows every selected contest and persists selection after reload', 
 test('adaptive answer and next-question flow works for all seven tracks', async ({ page }) => {
   const errors = await boot(page);
   for (const [id] of tracks) {
-    await page.evaluate(id => {
-      state.activeContest = id;
-      localStorage.setItem('concursosProState', JSON.stringify(state));
-      window.cpStartAdaptiveUnit(id, [], 'QA adaptativo');
-    }, id);
+    await page.evaluate(id => window.cpStartAdaptiveUnit(id, [], 'QA adaptativo'), id);
     await expect(page.locator('#quizArea .opt').first()).toBeVisible();
     await expect(page.locator('#contestFilter')).toHaveValue(id);
     await page.locator('#quizArea .opt').first().click();
@@ -69,11 +65,7 @@ test('adaptive answer and next-question flow works for all seven tracks', async 
 test('New session does not escape the active contest', async ({ page }) => {
   const errors = await boot(page);
   for (const [id] of tracks) {
-    await page.evaluate(id => {
-      state.activeContest = id;
-      localStorage.setItem('concursosProState', JSON.stringify(state));
-      window.cpStartAdaptiveUnit(id, [], 'QA');
-    }, id);
+    await page.evaluate(id => window.cpStartAdaptiveUnit(id, [], 'QA'), id);
     await page.getByRole('button', { name: 'Nova sessão' }).click();
     const currentContest = await page.evaluate(() => {
       try { return eval('current && current.contest'); } catch (e) { return null; }
@@ -114,6 +106,7 @@ test('reset data does not break UI after dynamic home replaced TCESP hero', asyn
 
 test('TCESP and TCU discursive modules grade and save', async ({ page }) => {
   const errors = await boot(page);
+  await page.waitForFunction(() => typeof window.cpStartDiscursive === 'function');
   for (const id of ['tcesp', 'tcu']) {
     await page.evaluate(id => window.cpStartDiscursive(id), id);
     const ta = page.locator('#cpDiscAnswer');
@@ -140,16 +133,17 @@ test('contest mocks start and advance for all tracks', async ({ page }) => {
   const errors = await boot(page);
   for (const [id] of tracks) {
     await page.evaluate(id => window.cpStartContestMock(id), id);
-    await expect(page.locator('#quizArea .opt, #tcespQuizArea .opt').first()).toBeVisible();
-    const before = await page.locator('#quizArea, #tcespQuizArea').filter({ has: page.locator('.opt') }).first().textContent();
-    await page.locator('#quizArea .opt, #tcespQuizArea .opt').first().click();
+    const container = id === 'tcesp' ? '#tcespQuizArea' : '#quizArea';
+    await expect(page.locator(`${container} .opt`).first()).toBeVisible();
+    const before = await page.locator(`${container} .question`).textContent();
+    await page.locator(`${container} .opt`).first().click();
     if (id === 'tcesp') {
       await expect(page.locator('#mockFeedback button')).toBeVisible();
       await page.locator('#mockFeedback button').click();
     } else {
       await page.waitForTimeout(80);
     }
-    const after = await page.locator('#quizArea, #tcespQuizArea').filter({ has: page.locator('.opt') }).first().textContent();
+    const after = await page.locator(`${container} .question`).textContent();
     expect(after).not.toBe(before);
   }
   await assertNoErrors(errors, 'mocks');
@@ -160,12 +154,10 @@ test('PWA remains fully dynamic when reloaded offline', async ({ page, context }
   await page.evaluate(() => window.cpOpenTrack('bacen'));
   await page.getByRole('button', { name: /Início/i }).click();
   await expect(page.locator('#cpHomeHero h2')).toContainText('Banco Central');
-  await page.waitForTimeout(800);
+  await page.evaluate(async () => { await navigator.serviceWorker.ready; const c=await caches.open('concursospro-v18'); await c.match('./app.html'); });
   await context.setOffline(true);
   await page.reload({ waitUntil: 'domcontentloaded' });
-  await page.waitForTimeout(500);
-  const dynamic = await page.evaluate(() => typeof window.cpOpenTrack === 'function' && typeof window.cpStartAdaptiveUnit === 'function');
-  expect(dynamic).toBeTruthy();
+  await page.waitForFunction(() => typeof window.cpOpenTrack === 'function' && typeof window.cpStartAdaptiveUnit === 'function', null, { timeout: 10000 });
   await expect(page.locator('#cpHomeHero h2')).toContainText('Banco Central');
   await context.setOffline(false);
   await assertNoErrors(errors, 'offline reload');
