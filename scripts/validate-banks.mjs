@@ -1,5 +1,4 @@
 import fs from 'node:fs';
-import path from 'node:path';
 
 const files = [
   'data/banks/tcu-question-bank.json',
@@ -11,16 +10,27 @@ const files = [
   'data/banks/curated/tcesp-v1.json',
   'data/banks/curated/tcu-v1.json',
   'data/banks/curated/tcu-v2.json',
+  'data/banks/curated/tcu-v3-p1.json',
+  'data/banks/curated/tcu-v3-p2.json',
+  'data/banks/curated/tcu-v3-p3.json',
+  'data/banks/curated/tcu-v3-p4.json',
   'data/banks/curated/bacen-v1.json',
   'data/banks/curated/bacen-v2.json',
+  'data/banks/curated/bacen-v3-p1.json',
+  'data/banks/curated/bacen-v3-p2.json',
   'data/banks/curated/cgu-v1.json',
   'data/banks/curated/cgu-v2.json',
+  'data/banks/curated/cgu-v3-p1.json',
+  'data/banks/curated/cgu-v3-p2.json',
   'data/banks/curated/rfb-v1.json',
-  'data/banks/curated/rfb-v2.json'
+  'data/banks/curated/rfb-v2.json',
+  'data/banks/curated/rfb-v3-p1.json',
+  'data/banks/curated/rfb-v3-p2.json'
 ];
 
 const allowedDifficulty = new Set(['facil','media','dificil']);
 const seen = new Set();
+const curatedByContest = {};
 let total = 0;
 let curated = 0;
 let failed = false;
@@ -38,7 +48,10 @@ for (const file of files) {
   if (!Array.isArray(pack.questions)) { fail(`${file}: questions não é array`); continue; }
   for (const q of pack.questions) {
     total++;
-    if (q.quality === 'curated') curated++;
+    if (q.quality === 'curated') {
+      curated++;
+      curatedByContest[q.contest] = (curatedByContest[q.contest] || 0) + 1;
+    }
     if (!q.id || typeof q.id !== 'string') fail(`${file}: questão sem id`);
     else if (seen.has(q.id)) fail(`${file}: id duplicado ${q.id}`);
     else seen.add(q.id);
@@ -55,5 +68,10 @@ for (const file of files) {
   }
 }
 
+for (const id of ['tcu','bacen','cgu','rfb']) {
+  if ((curatedByContest[id] || 0) < 120) fail(`${id}: menos de 120 questões curated (${curatedByContest[id] || 0})`);
+}
+
 console.log(`Validated ${total} dedicated questions; ${curated} curated; ${seen.size} unique IDs.`);
+console.log('Curated by contest:', curatedByContest);
 if (failed) process.exit(1);
