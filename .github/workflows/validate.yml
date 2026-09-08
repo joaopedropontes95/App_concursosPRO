@@ -1,0 +1,25 @@
+name: Validate ConcursosPro
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate question banks
+        run: node scripts/validate-banks.mjs
+      - name: Check JavaScript syntax
+        run: |
+          node --check data/adaptive-engine.js
+          node --check data/bank-loader-v2.js
+          node --check data/discursive-engine.js
+          node --check data/performance-dashboard.js
+          node --check data/trilhas-runtime.js
+          node --check sw.js
