@@ -15,9 +15,12 @@ jobs:
           node-version: '22'
       - name: Validate question banks
         run: node scripts/validate-banks.mjs
+      - name: Validate answer flow
+        run: node scripts/validate-answer-flow.mjs
       - name: Check JavaScript syntax
         run: |
           node --check data/adaptive-engine.js
+          node --check data/answer-flow-guard.js
           node --check data/bank-loader-v2.js
           node --check data/discursive-engine.js
           node --check data/performance-dashboard.js
