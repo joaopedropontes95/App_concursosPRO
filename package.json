@@ -1,0 +1,10 @@
+{
+  "name": "concursospro-qa",
+  "private": true,
+  "scripts": {
+    "qa": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0"
+  }
+}
