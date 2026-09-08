@@ -72,6 +72,25 @@ for (const id of ['tcu','bacen','cgu','rfb']) {
   if ((curatedByContest[id] || 0) < 120) fail(`${id}: menos de 120 questões curated (${curatedByContest[id] || 0})`);
 }
 
+let evidence;
+try { evidence = JSON.parse(fs.readFileSync('data/historical-exam-evidence.json','utf8')); }
+catch (e) { fail(`historical-exam-evidence.json inválido: ${e.message}`); evidence = {contests:{}}; }
+for (const id of ['bacen','cgu','rfb']) {
+  const c = evidence?.contests?.[id];
+  if (!c) { fail(`${id}: evidência histórica ausente`); continue; }
+  if (!Array.isArray(c.exams) || c.exams.length !== 5) fail(`${id}: deve possuir exatamente 5 provas históricas`);
+  const weights = c.subject_weights;
+  if (!weights || !Object.keys(weights).length) fail(`${id}: subject_weights ausente`);
+  else for (const [subject,value] of Object.entries(weights)) {
+    if (!Number.isFinite(Number(value)) || Number(value) < 0 || Number(value) > 1) fail(`${id}/${subject}: peso histórico inválido (${value})`);
+  }
+  for (const exam of (c.exams||[])) {
+    if (!exam.year || !exam.bank || !exam.weight) fail(`${id}: prova histórica sem year/bank/weight`);
+    if (!Array.isArray(exam.sources) || exam.sources.length === 0) fail(`${id}/${exam.year}: fonte histórica ausente`);
+  }
+}
+
 console.log(`Validated ${total} dedicated questions; ${curated} curated; ${seen.size} unique IDs.`);
 console.log('Curated by contest:', curatedByContest);
+console.log('Five-exam historical evidence validated for BACEN, CGU and RFB.');
 if (failed) process.exit(1);
