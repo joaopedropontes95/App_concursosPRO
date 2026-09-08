@@ -88,21 +88,24 @@ test('adaptive answer flow works in all seven tracks and shows next button', asy
 });
 
 test('generic filters never leak a question from another contest', async ({ page }) => {
-  await boot(page, '/?qa=filters');
+  const q = await boot(page, '/?qa=filters');
   const incompatible = await page.evaluate(() => {
     const tcu = new Set(questions.filter(q => q.contest === 'tcu').map(q => q.subject));
     return [...new Set(questions.map(q => q.subject))].find(s => !tcu.has(s));
   });
   expect(incompatible).toBeTruthy();
+  await page.locator('[data-view="questoes"]').click();
   await page.selectOption('#contestFilter', 'tcu');
   await page.selectOption('#subjectFilter', { label: incompatible });
   await page.getByRole('button', { name: 'Nova sessão' }).click();
   await expect(page.locator('#quizArea')).toContainText(/Nenhuma questão compatível|Nenhuma questão disponível/i);
   await expect(page.locator('#quizArea .question')).toHaveCount(0);
+  expect(q.pageErrors).toEqual([]);
+  expect(seriousConsoleErrors(q.consoleErrors)).toEqual([]);
 });
 
 test('error notebook respects the active track', async ({ page }) => {
-  await boot(page, '/?qa=errors');
+  const q = await boot(page, '/?qa=errors');
 
   async function forceWrong(id) {
     await page.evaluate(id => window.cpStartAdaptiveUnit(id, [], 'QA erros'), id);
@@ -123,6 +126,17 @@ test('error notebook respects the active track', async ({ page }) => {
   await page.locator('[data-view="erros"]').click();
   await expect(page.locator('#errorsList')).toContainText('TCU');
   await expect(page.locator('#errorsList')).not.toContainText('Receita Federal');
+  expect(q.pageErrors).toEqual([]);
+  expect(seriousConsoleErrors(q.consoleErrors)).toEqual([]);
+});
+
+test('every objective track exposes a simulator node', async ({ page }) => {
+  await boot(page, '/?qa=track-structure');
+  const missing = await page.evaluate(async () => {
+    const t = await fetch('./data/trilhas.json').then(r => r.json());
+    return Object.entries(t.tracks).filter(([, track]) => !(track.units || []).some(u => u.mode === 'mock' || u.mode === 'quiz' || /simulado/i.test(u.title))).map(([id]) => id);
+  });
+  expect(missing).toEqual([]);
 });
 
 test('simulators launch for every track and advance without immediate answer leakage', async ({ page }) => {
@@ -132,7 +146,7 @@ test('simulators launch for every track and advance without immediate answer lea
     await expect(page.locator('#quizArea .opt, #tcespQuizArea .opt').first()).toBeVisible();
     if (id === 'tcesp') {
       await page.locator('#tcespQuizArea .opt').first().click();
-      await expect(page.locator('#mockFeedback')).toContainText(/Acertou|Errou/);
+      await expect(page.locator('#mockFeedback')).toContainText(/ponto/i);
       await expect(page.getByRole('button', { name: 'Próxima questão' })).toBeVisible();
     } else {
       const before = await page.locator('#quizArea').textContent();
@@ -179,6 +193,7 @@ test('discursive modules work for TCESP and TCU, and TJSP has no writing module'
 
 test('export/import roundtrip and state persistence do not break UI', async ({ page }) => {
   const q = await boot(page, '/?qa=data');
+  await page.locator('[data-view="dados"]').click();
   await page.evaluate(() => {
     state.activeContest = 'cgu';
     state.streak = 7;
@@ -202,11 +217,13 @@ test('export/import roundtrip and state persistence do not break UI', async ({ p
 });
 
 test('manifest is contest-neutral and main navigation remains usable on mobile/tablet', async ({ page }) => {
-  await boot(page, '/?qa=manifest');
+  const q = await boot(page, '/?qa=manifest');
   const manifest = await page.evaluate(() => fetch('./manifest.webmanifest').then(r => r.json()));
   expect(manifest.name).not.toMatch(/TCESP/i);
   for (const view of ['home', 'questoes', 'erros', 'concursos', 'fontes', 'dados']) {
     await page.locator(`[data-view="${view}"]`).click();
     await expect(page.locator(`#${view}`)).toBeVisible();
   }
+  expect(q.pageErrors).toEqual([]);
+  expect(seriousConsoleErrors(q.consoleErrors)).toEqual([]);
 });
