@@ -1,0 +1,19 @@
+{
+  "updated_at": "2026-09-08",
+  "policy": "Fontes oficiais são usadas para validar edital, formato, disciplinas, gabaritos e padrões. Questões de terceiros não são copiadas/republicadas; quando necessário, são usadas como referência para gerar questões novas e adaptadas.",
+  "sources": [
+    {"provider":"TCESP","type":"official","scope":"edital, concursos, provas anteriores","url":"https://www.tce.sp.gov.br/concursos"},
+    {"provider":"VUNESP","type":"official","scope":"provas e gabaritos","url":"https://www.vunesp.com.br/"},
+    {"provider":"CEBRASPE","type":"official","scope":"provas, editais e gabaritos","url":"https://www.cebraspe.org.br/"},
+    {"provider":"FCC","type":"official","scope":"provas e concursos","url":"https://www.concursosfcc.com.br/"},
+    {"provider":"FGV Conhecimento","type":"official","scope":"provas e gabaritos de tribunais de contas e controle","url":"https://conhecimento.fgv.br/concursos"},
+    {"provider":"Fundação Vanzolini","type":"official","scope":"provas e concursos quando aplicável","url":"https://www.vanzolini.org.br/"},
+    {"provider":"QConcursos","type":"reference","scope":"índices, classificação temática, estatísticas e localização de provas públicas/indicadas","url":"https://www.qconcursos.com/"}
+  ],
+  "validated_examples": [
+    {"source":"QConcursos","exam":"TCE-SP 2025 — Auditor de Controle Externo","url":"https://www.qconcursos.com/questoes-de-concursos/provas/vunesp-2025-tce-sp-auditor-de-controle-externo/questoes","observation":"A página apresenta questões VUNESP do concurso de 2025 e permite identificar disciplinas como Auditoria Governamental e Controle Externo."},
+    {"source":"QConcursos","exam":"TCU 2026 — Auditor Federal de Controle Externo/TI","url":"https://www.qconcursos.com/questoes-de-concursos/provas/cespe-cebraspe-2026-tcu-auditor-federal-de-controle-externo-area-de-controle-externo-orientacao-auditoria-de-tecnologia-da-informacao/questoes","observation":"A base mostra questões CEBRASPE no formato Certo/Errado; esse formato deve permanecer somente para treinos cuja banca-alvo use esse modelo, e não deve ser imposto ao TCESP/VUNESP."},
+    {"source":"FGV Conhecimento","exam":"TCE-SC 2026 — Auditor Fiscal de Controle Externo","url":"https://conhecimento.fgv.br/concursos/tcesc26","observation":"A página oficial disponibiliza provas objetivas por especialidade, gabaritos e prova discursiva, sendo uma fonte relevante para calibrar conteúdo de controle externo e especialidades."},
+    {"source":"FGV Conhecimento","exam":"TCE-PE — Auditor de Controle Externo","url":"https://conhecimento.fgv.br/concursos/tcepe","observation":"A página oficial reúne provas objetivas, gabaritos, resultados e discursivas por área, útil para ampliar o corpus de referência de controle externo."}
+  ]
+}
