@@ -7,7 +7,7 @@ on:
 jobs:
   e2e:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -21,3 +21,15 @@ jobs:
         run: npm run qa
       - name: Run v19 Android and iPad regressions
         run: npx playwright test --config=playwright.v19.config.js
+      - name: Run v20 answer-quality and TCESP regressions
+        run: npx playwright test --config=playwright.v20.config.js
+      - name: Upload v20 QA diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v20-qa-diagnostics
+          path: |
+            v20-report.json
+            test-results
+          if-no-files-found: ignore
+          retention-days: 3

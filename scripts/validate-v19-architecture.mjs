@@ -12,10 +12,10 @@ const runtimes=[
   './data/discursive-engine.js',
   './data/performance-dashboard.js',
   './data/answer-flow-guard.js?b=19',
-  './data/app-stability.js?b=19'
+  './data/app-stability.js?b=20'
 ];
 
-if(!app.includes('data-cp-runtime-bootstrap="v19"')) throw new Error('app.html não possui bootstrap direto v19');
+if(!app.includes('data-cp-runtime-bootstrap="v19"')) throw new Error('app.html não possui bootstrap direto');
 let previous=-1;
 for(const src of runtimes){
   const needle=`src="${src}"`;
@@ -28,7 +28,8 @@ for(const src of runtimes){
 if(sw.includes('RUNTIME_TAGS')||sw.includes("replace('</body>'")||sw.includes('injectApp(')){
   throw new Error('Service Worker voltou a injetar runtimes no HTML');
 }
-if(!sw.includes("const CACHE='concursospro-v19'")) throw new Error('cache PWA não está em v19');
+if(!sw.includes("const CACHE='concursospro-v20'")) throw new Error('cache PWA não está em v20');
+if(!sw.includes('./data/app-stability.js?b=20')) throw new Error('Service Worker não pré-cacheia app-stability v20');
 
 const tcu=(tracks.tcu||{}).units||[];
 const mockNodes=tcu.filter(u=>u.id==='simulado'||(u.mode==='mock'&&/simulado/i.test(u.title||'')));
@@ -38,4 +39,4 @@ if(mock.id!=='simulado'||mock.mode!=='mock'||mock.title!=='Simulado objetivo'){
   throw new Error('nó de simulado do TCU está com configuração inesperada');
 }
 
-console.log('Arquitetura v19 OK: runtimes diretos, SW sem injeção e TCU com simulado objetivo.');
+console.log('Arquitetura direta OK: SW v20 sem injeção, runtime de estabilidade v20 e TCU com simulado objetivo.');
