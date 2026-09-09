@@ -7,7 +7,7 @@ on:
 jobs:
   e2e:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -15,7 +15,9 @@ jobs:
           node-version: '22'
       - name: Install QA dependencies
         run: npm install
-      - name: Install Chromium
-        run: npx playwright install --with-deps chromium
-      - name: Run end-to-end QA
+      - name: Install Chromium and WebKit
+        run: npx playwright install --with-deps chromium webkit
+      - name: Run full end-to-end QA
         run: npm run qa
+      - name: Run v19 Android and iPad regressions
+        run: npx playwright test --config=playwright.v19.config.js
