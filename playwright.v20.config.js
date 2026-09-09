@@ -8,7 +8,7 @@ module.exports=defineConfig({
   fullyParallel:false,
   retries:0,
   workers:1,
-  reporter:[['list']],
+  reporter:[['list'],['json',{outputFile:'v20-report.json'}]],
   use:{baseURL:'http://127.0.0.1:4173',trace:'retain-on-failure',serviceWorkers:'allow'},
   projects:[
     {name:'android-chromium',use:{...devices['Galaxy S9+']}},
