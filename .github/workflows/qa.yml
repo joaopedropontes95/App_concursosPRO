@@ -7,7 +7,9 @@ on:
 jobs:
   e2e:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    container:
+      image: mcr.microsoft.com/playwright:v1.55.0-noble
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -15,22 +17,8 @@ jobs:
           node-version: '22'
       - name: Install QA dependencies
         run: npm install
-      - name: Install WebKit system dependencies
-        run: |
-          for attempt in 1 2 3; do
-            npx playwright install-deps webkit && break
-            if [ "$attempt" = "3" ]; then exit 1; fi
-            echo "WebKit dependency install failed; retrying in 15s (attempt $attempt/3)..."
-            sleep 15
-          done
-      - name: Install Chromium and WebKit
-        run: |
-          for attempt in 1 2 3; do
-            npx playwright install chromium webkit && break
-            if [ "$attempt" = "3" ]; then exit 1; fi
-            echo "Browser download failed; retrying in 10s (attempt $attempt/3)..."
-            sleep 10
-          done
+      - name: Verify bundled browsers
+        run: npx playwright --version
       - name: Run full end-to-end QA
         run: npm run qa
       - name: Run v19 Android and iPad regressions
