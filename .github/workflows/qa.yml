@@ -16,7 +16,13 @@ jobs:
       - name: Install QA dependencies
         run: npm install
       - name: Install Chromium and WebKit
-        run: npx playwright install --with-deps chromium webkit
+        run: |
+          for attempt in 1 2 3; do
+            npx playwright install --with-deps chromium webkit && break
+            if [ "$attempt" = "3" ]; then exit 1; fi
+            echo "Browser install failed; retrying in 10s (attempt $attempt/3)..."
+            sleep 10
+          done
       - name: Run full end-to-end QA
         run: npm run qa
       - name: Run v19 Android and iPad regressions
