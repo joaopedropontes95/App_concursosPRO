@@ -19,9 +19,10 @@ async function boot(page){
 
 test('legacy TCESP shortcut is removed from sidebar',async({page})=>{
   const errors=await boot(page);
-  await expect(page.locator('.nav [data-view="tcesp"]')).toHaveCount(0);
-  await expect(page.getByRole('button',{name:/Questões/i})).toBeVisible();
-  await expect(page.getByRole('button',{name:/Concursos/i})).toBeVisible();
+  const sidebar=page.locator('aside');
+  await expect(sidebar.locator('[data-view="tcesp"]')).toHaveCount(0);
+  await expect(sidebar.getByRole('button',{name:/Questões/i})).toBeVisible();
+  await expect(sidebar.getByRole('button',{name:/Minhas trilhas/i})).toBeVisible();
   expect(errors).toEqual([]);
 });
 
