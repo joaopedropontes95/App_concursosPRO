@@ -7,7 +7,9 @@ on:
 jobs:
   e2e:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    container:
+      image: mcr.microsoft.com/playwright:v1.55.0-noble
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -15,19 +17,21 @@ jobs:
           node-version: '22'
       - name: Install QA dependencies
         run: npm install
-      - name: Install Chromium and WebKit
-        run: npx playwright install --with-deps chromium webkit
+      - name: Verify bundled browsers
+        run: npx playwright --version
       - name: Run full end-to-end QA
         run: npm run qa
       - name: Run v19 Android and iPad regressions
         run: npx playwright test --config=playwright.v19.config.js
       - name: Run v20 answer-quality and TCESP regressions
         run: npx playwright test --config=playwright.v20.config.js
-      - name: Upload v20 QA diagnostics
+      - name: Run v21 grounded-explanation regressions
+        run: npx playwright test --config=playwright.v21.config.js
+      - name: Upload QA diagnostics
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: v20-qa-diagnostics
+          name: qa-diagnostics
           path: |
             v20-report.json
             test-results

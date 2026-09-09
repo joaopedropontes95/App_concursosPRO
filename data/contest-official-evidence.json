@@ -1,0 +1,216 @@
+{
+  "version": "2026.09.09-v21-contest-matrix",
+  "policy": "Fontes institucionais específicas complementam a fundamentação geral. Cada trilha deve manter cobertura oficial própria e atualizável.",
+  "rules": [
+    {
+      "id": "tcesp_lei_organica",
+      "contest": "tcesp",
+      "subjects": ["Controle Externo", "Legislação", "Direito Administrativo"],
+      "keywords": ["lei orgânica", "tribunal de contas do estado de são paulo", "competência", "jurisdição", "parecer prévio", "julgamento de contas"],
+      "title": "Lei Complementar paulista nº 709/1993 — Lei Orgânica do TCESP",
+      "basis": "Lei Orgânica do Tribunal de Contas do Estado de São Paulo",
+      "summary": "Disciplina organização, competência, jurisdição e processos do Tribunal de Contas do Estado de São Paulo.",
+      "url": "https://www.tce.sp.gov.br/legislacao/legislacao-estadual/lei-complementar-ndeg-7091993-versao-original-lei-organica-tribunal"
+    },
+    {
+      "id": "tcesp_regimento",
+      "contest": "tcesp",
+      "subjects": ["Controle Externo", "Legislação"],
+      "keywords": ["regimento interno", "tribunal pleno", "câmara", "conselheiro", "recurso", "processo no tcesp"],
+      "title": "Regimento Interno do TCESP — texto compilado",
+      "basis": "Regimento Interno vigente do Tribunal de Contas do Estado de São Paulo",
+      "summary": "Detalha a organização interna, competências dos órgãos colegiados, processamento e julgamento no TCESP.",
+      "url": "https://www.tce.sp.gov.br/legislacao/lei-organica-e-regimento-interno/regimento-interno-compilado"
+    },
+    {
+      "id": "tcesp_manuais",
+      "contest": "tcesp",
+      "subjects": ["Controle Externo", "AFO", "Auditoria Governamental"],
+      "keywords": ["controle interno", "fiscalização", "prefeituras", "câmaras municipais", "licitações", "contratos", "fundeb"],
+      "title": "TCESP — Manuais e orientações técnicas",
+      "basis": "publicações técnicas do Tribunal de Contas do Estado de São Paulo",
+      "summary": "Reúne manuais oficiais de controle interno, gestão pública, licitações, contratos e fiscalização utilizados como referência prática.",
+      "url": "https://www.tce.sp.gov.br/portal-controle-interno/manuais"
+    },
+    {
+      "id": "tcu_lei_organica",
+      "contest": "tcu",
+      "subjects": ["Controle Externo", "Direito Administrativo"],
+      "keywords": ["lei orgânica do tcu", "tomada de contas especial", "competência do tcu", "responsável", "débito", "multa"],
+      "title": "Lei nº 8.443/1992 — Lei Orgânica do TCU",
+      "basis": "Lei Orgânica do Tribunal de Contas da União",
+      "summary": "Define competências, jurisdição, processos, sanções e funcionamento institucional do TCU.",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/l8443.htm"
+    },
+    {
+      "id": "tcu_regimento",
+      "contest": "tcu",
+      "subjects": ["Controle Externo", "Direito Administrativo"],
+      "keywords": ["regimento interno do tcu", "plenário", "primeira câmara", "segunda câmara", "recurso", "relator"],
+      "title": "Regimento Interno do Tribunal de Contas da União",
+      "basis": "RITCU — versão institucional atualizada",
+      "summary": "Consolida competências dos órgãos do TCU, rito processual e regras internas de deliberação.",
+      "url": "https://portal.tcu.gov.br/publicacoes-institucionais/normativo/regimento-interno-do-tribunal-de-contas-da-uniao"
+    },
+    {
+      "id": "tcu_manual_auditoria_operacional",
+      "contest": "tcu",
+      "subjects": ["Auditoria Governamental", "Controle Externo"],
+      "keywords": ["auditoria operacional", "economicidade", "eficiência", "eficácia", "efetividade", "evidência", "achado", "matriz de planejamento"],
+      "title": "TCU — Manual de Auditoria Operacional",
+      "basis": "Manual de Auditoria Operacional do TCU",
+      "summary": "Estabelece requisitos e orientações oficiais para planejamento, execução, evidências, achados e controle de qualidade da auditoria operacional.",
+      "url": "https://portal.tcu.gov.br/publicacoes-institucionais/cartilha-manual-ou-tutorial/manual-de-auditoria-operacional"
+    },
+    {
+      "id": "bacen_lei_4595",
+      "contest": "bacen",
+      "subjects": ["Conhecimentos Bancários", "Direito", "Política Monetária"],
+      "keywords": ["lei 4595", "conselho monetário nacional", "banco central", "instituição financeira", "política monetária", "sistema financeiro nacional"],
+      "title": "Lei nº 4.595/1964",
+      "basis": "Política e Instituições Monetárias, Bancárias e Creditícias",
+      "summary": "Estrutura o Sistema Financeiro Nacional, o Conselho Monetário Nacional e o Banco Central do Brasil.",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/l4595.htm"
+    },
+    {
+      "id": "bacen_sfn",
+      "contest": "bacen",
+      "subjects": ["Conhecimentos Bancários"],
+      "keywords": ["sfn", "sistema financeiro nacional", "instituições financeiras", "supervisão", "intermediação financeira"],
+      "title": "Banco Central do Brasil — Sistema Financeiro Nacional",
+      "basis": "estrutura e funcionamento do SFN",
+      "summary": "Fonte institucional do Banco Central sobre composição, papéis e funcionamento do Sistema Financeiro Nacional.",
+      "url": "https://www.bcb.gov.br/estabilidadefinanceira/sfn"
+    },
+    {
+      "id": "bacen_politica_monetaria",
+      "contest": "bacen",
+      "subjects": ["Economia", "Política Monetária"],
+      "keywords": ["selic", "inflação", "copom", "meta de inflação", "juros", "transmissão monetária", "expectativas"],
+      "title": "Banco Central do Brasil — Controle da Inflação",
+      "basis": "material institucional de política monetária",
+      "summary": "Explica objetivos, instrumentos e mecanismos de transmissão da política monetária no regime de metas para a inflação.",
+      "url": "https://www.bcb.gov.br/controleinflacao"
+    },
+    {
+      "id": "cgu_normas_auditoria",
+      "contest": "cgu",
+      "subjects": ["Auditoria Governamental"],
+      "keywords": ["referencial técnico", "manual de orientações técnicas", "auditoria interna governamental", "paint", "raint", "sfc", "evidência"],
+      "title": "CGU — Normas de Auditoria Interna Governamental",
+      "basis": "IN SFC nº 3/2017 e IN SFC nº 8/2017, entre outras normas oficiais",
+      "summary": "Reúne o Referencial Técnico e o Manual de Orientações Técnicas da atividade de auditoria interna governamental do Poder Executivo Federal.",
+      "url": "https://www.gov.br/cgu/pt-br/assuntos/auditoria-e-fiscalizacao/normas-de-auditoria-interna/normas-de-auditoria-interna"
+    },
+    {
+      "id": "cgu_integridade_publica",
+      "contest": "cgu",
+      "subjects": ["Integridade", "Administração Pública"],
+      "keywords": ["integridade pública", "sitia", "sistema de integridade", "programa de integridade", "gestão da integridade", "transparência"],
+      "title": "CGU — Legislação de Integridade Pública",
+      "basis": "Decreto nº 11.529/2023 e atos normativos correlatos",
+      "summary": "Página oficial da CGU com a legislação vigente sobre integridade pública, transparência e gestão da integridade.",
+      "url": "https://www.gov.br/cgu/pt-br/assuntos/integridade-publica/legislacao-de-integridade-publica"
+    },
+    {
+      "id": "cgu_integridade_privada",
+      "contest": "cgu",
+      "subjects": ["Integridade", "Administração Pública"],
+      "keywords": ["lei anticorrupção", "decreto 11129", "acordo de leniência", "programa de integridade", "pessoa jurídica", "ato lesivo"],
+      "title": "CGU — Normativos de Integridade Privada",
+      "basis": "Lei nº 12.846/2013 e Decreto nº 11.129/2022",
+      "summary": "Central oficial da CGU para normas sobre responsabilização de pessoas jurídicas, programas de integridade e acordos de leniência.",
+      "url": "https://www.gov.br/cgu/pt-br/assuntos/integridade-privada/materiaisdeorientacao/normativos"
+    },
+    {
+      "id": "rfb_legislacao_interesse",
+      "contest": "rfb",
+      "subjects": ["Direito Tributário", "Legislação Aduaneira"],
+      "keywords": ["legislação tributária federal", "normas da receita federal", "regulamentos", "solução de consulta", "código tributário nacional", "rfb"],
+      "title": "Receita Federal — Legislação de interesse da RFB",
+      "basis": "central oficial de normas, regulamentos e jurisprudência administrativa",
+      "summary": "Centraliza normas da Receita Federal, CTN, regulamentos, soluções de consulta e outros atos relevantes à administração tributária e aduaneira.",
+      "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/legislacao/legislacao"
+    },
+    {
+      "id": "rfb_manuais_aduaneiros",
+      "contest": "rfb",
+      "subjects": ["Legislação Aduaneira"],
+      "keywords": ["despacho aduaneiro", "importação", "exportação", "trânsito aduaneiro", "regime especial", "duimp", "siscomex"],
+      "title": "Receita Federal — Manuais Aduaneiros",
+      "basis": "manuais oficiais de Aduana e Comércio Exterior",
+      "summary": "Reúne manuais atualizados sobre importação, exportação, regimes especiais, trânsito aduaneiro e sistemas aduaneiros.",
+      "url": "https://www.gov.br/receitafederal/pt-br/assuntos/aduana-e-comercio-exterior/manuais"
+    },
+    {
+      "id": "rfb_reforma_tributaria",
+      "contest": "rfb",
+      "subjects": ["Direito Tributário", "Economia e Finanças Públicas"],
+      "keywords": ["reforma tributária", "ibs", "cbs", "imposto seletivo", "ec 132", "lc 214", "lc 227"],
+      "title": "Receita Federal — Legislação da Reforma Tributária do Consumo",
+      "basis": "EC nº 132/2023, LC nº 214/2025 e LC nº 227/2026",
+      "summary": "Página oficial atualizada com os principais marcos normativos da Reforma Tributária do Consumo.",
+      "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/programas-e-atividades/reforma-tributaria-do-consumo/legislacao/legislacao-da-reforma-tributaria-do-consumo"
+    },
+    {
+      "id": "anpd_lgpd",
+      "contest": "anpd",
+      "subjects": ["LGPD", "Governança de Dados", "Segurança da Informação"],
+      "keywords": ["lgpd", "dado pessoal", "dado sensível", "controlador", "operador", "encarregado", "base legal", "direitos do titular"],
+      "title": "Lei nº 13.709/2018 — Lei Geral de Proteção de Dados Pessoais",
+      "basis": "LGPD",
+      "summary": "Norma central de proteção de dados pessoais no Brasil, com princípios, bases legais, direitos, agentes de tratamento e sanções.",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+    },
+    {
+      "id": "anpd_regulamentacoes",
+      "contest": "anpd",
+      "subjects": ["LGPD", "Regulação", "Governança de Dados", "Segurança da Informação"],
+      "keywords": ["resolução anpd", "dosimetria", "incidente de segurança", "transferência internacional", "encarregado", "fiscalização", "sanção"],
+      "title": "ANPD — Regulamentações vigentes",
+      "basis": "Resoluções CD/ANPD",
+      "summary": "Central oficial com regulamentos da ANPD sobre fiscalização, sanções, incidentes de segurança, encarregado e transferência internacional de dados.",
+      "url": "https://www.gov.br/anpd/pt-br/acesso-a-informacao/institucional/atos-normativos/regulamentacoes_anpd"
+    },
+    {
+      "id": "anpd_analise_regulatoria",
+      "contest": "anpd",
+      "subjects": ["Regulação", "LGPD", "Governança de Dados"],
+      "keywords": ["análise de impacto regulatório", "agenda regulatória", "transferência internacional", "incidente de segurança", "dosimetria", "regulação"],
+      "title": "ANPD — Análise de Impacto Regulatório",
+      "basis": "processos regulatórios e resoluções da ANPD",
+      "summary": "Reúne documentos de análise regulatória e atos normativos usados pela ANPD na construção e revisão de sua regulamentação.",
+      "url": "https://www.gov.br/anpd/pt-br/assuntos/regulacao/analise-de-impacto-regulatorio-1"
+    },
+    {
+      "id": "tjsp_normas_corregedoria",
+      "contest": "tjsp",
+      "subjects": ["Normas da Corregedoria", "Processo Civil", "Processo Penal"],
+      "keywords": ["normas da corregedoria", "nscgj", "tomo i", "cartório judicial", "ofício de justiça", "escrevente", "corregedoria geral da justiça"],
+      "title": "TJSP — Normas Judiciais da Corregedoria-Geral da Justiça",
+      "basis": "NSCGJ — Tomo I, texto atualizado",
+      "summary": "Fonte oficial do TJSP para as Normas de Serviço da Corregedoria aplicáveis às unidades judiciais.",
+      "url": "https://portal.tjsp.jus.br/Corregedoria/Comunicados/NormasJudiciais"
+    },
+    {
+      "id": "tjsp_cpc",
+      "contest": "tjsp",
+      "subjects": ["Processo Civil", "Direito Civil"],
+      "keywords": ["processo civil", "cpc", "citação", "intimação", "prazo processual", "competência", "recurso", "cumprimento de sentença"],
+      "title": "Lei nº 13.105/2015 — Código de Processo Civil",
+      "basis": "Código de Processo Civil",
+      "summary": "Principal fonte normativa federal para questões de Processo Civil cobradas na trilha TJSP.",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm"
+    },
+    {
+      "id": "tjsp_cpp",
+      "contest": "tjsp",
+      "subjects": ["Processo Penal"],
+      "keywords": ["processo penal", "cpp", "inquérito", "ação penal", "prisão", "citação", "intimação", "prova penal"],
+      "title": "Decreto-Lei nº 3.689/1941 — Código de Processo Penal",
+      "basis": "Código de Processo Penal",
+      "summary": "Principal fonte normativa federal para Processo Penal na trilha TJSP.",
+      "url": "https://www.planalto.gov.br/ccivil_03/decreto-lei/del3689.htm"
+    }
+  ]
+}
