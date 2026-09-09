@@ -79,7 +79,9 @@ test('TCESP specialty unit starts, answers and advances using selected specialty
 });
 
 test('reference mode favors curated adapted questions',async({page})=>{
-  await boot(page);
+  const errors=await boot(page);
+  await page.getByRole('button',{name:/Questões/i}).click();
+  await expect(page.locator('#questoes')).toBeVisible();
   await page.selectOption('#contestFilter','rfb');
   await page.selectOption('#modeFilter','source');
   let curated=0;
@@ -90,4 +92,5 @@ test('reference mode favors curated adapted questions',async({page})=>{
     expect(q.reference.length).toBeGreaterThan(0);
   }
   expect(curated).toBeGreaterThanOrEqual(10);
+  expect(errors).toEqual([]);
 });
