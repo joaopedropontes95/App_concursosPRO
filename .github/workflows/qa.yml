@@ -18,9 +18,9 @@ jobs:
       - name: Install Chromium and WebKit
         run: |
           for attempt in 1 2 3; do
-            npx playwright install --with-deps chromium webkit && break
+            npx playwright install chromium webkit && break
             if [ "$attempt" = "3" ]; then exit 1; fi
-            echo "Browser install failed; retrying in 10s (attempt $attempt/3)..."
+            echo "Browser download failed; retrying in 10s (attempt $attempt/3)..."
             sleep 10
           done
       - name: Run full end-to-end QA
