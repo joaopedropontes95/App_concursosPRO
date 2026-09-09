@@ -7,7 +7,7 @@ on:
 jobs:
   e2e:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -15,6 +15,14 @@ jobs:
           node-version: '22'
       - name: Install QA dependencies
         run: npm install
+      - name: Install WebKit system dependencies
+        run: |
+          for attempt in 1 2 3; do
+            npx playwright install-deps webkit && break
+            if [ "$attempt" = "3" ]; then exit 1; fi
+            echo "WebKit dependency install failed; retrying in 15s (attempt $attempt/3)..."
+            sleep 15
+          done
       - name: Install Chromium and WebKit
         run: |
           for attempt in 1 2 3; do
