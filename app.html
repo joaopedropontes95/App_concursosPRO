@@ -65,4 +65,14 @@ function renderErrors(){const el=document.getElementById('errorsList');if(!state
 function renderContests(){document.getElementById('contestGrid').innerHTML=contests.map(c=>`<div class="card span6"><h2>${c.name}</h2><div class="chips"><span class="chip">${c.bank}</span><span class="chip">${c.date}</span></div><p class="muted">${c.note}</p><button class="primary" onclick="document.getElementById('contestFilter').value='${c.id}';startQuiz()">Treinar este concurso</button></div>`).join('')}function renderSources(){document.getElementById('sources').innerHTML=sources.map(s=>`<div class="source row"><div><strong>${s.name}</strong><div class="muted">${s.desc}</div></div><a href="${s.url}" target="_blank" rel="noopener">Abrir fonte ↗</a></div>`).join('')}function renderAll(){renderHome();renderErrors();renderContests();renderSources();renderTCESP();}
 function exportData(){document.getElementById('dataBox').value=JSON.stringify(state,null,2)}function importData(){try{state=JSON.parse(document.getElementById('dataBox').value);save();alert('Progresso importado.')}catch(e){alert('JSON inválido.')}}function resetData(){if(confirm('Zerar todo o progresso local?')){state={answered:0,correct:0,errors:[],stats:{},streak:1,lastDate:null,tcespSpecialty:'contabeis',simulados:[]};save()}}
 populateFilters();renderAll();if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
-</script></body></html>
+</script>
+<!-- data-cp-runtime-bootstrap="v19"; app-stability.js?b=18 compatibility marker prevents legacy SW v18 reinjection -->
+<script data-cp-runtime="v19" src="./data/tcesp-runtime.js"></script>
+<script data-cp-runtime="v19" src="./data/bank-loader-v2.js"></script>
+<script data-cp-runtime="v19" src="./data/trilhas-runtime.js?b=19"></script>
+<script data-cp-runtime="v19" src="./data/adaptive-engine.js"></script>
+<script data-cp-runtime="v19" src="./data/discursive-engine.js"></script>
+<script data-cp-runtime="v19" src="./data/performance-dashboard.js"></script>
+<script data-cp-runtime="v19" src="./data/answer-flow-guard.js?b=19"></script>
+<script data-cp-runtime="v19" src="./data/app-stability.js?b=19"></script>
+</body></html>

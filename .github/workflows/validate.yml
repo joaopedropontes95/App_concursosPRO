@@ -17,6 +17,8 @@ jobs:
         run: node scripts/validate-banks.mjs
       - name: Validate answer flow
         run: node scripts/validate-answer-flow.mjs
+      - name: Validate v19 architecture
+        run: node scripts/validate-v19-architecture.mjs
       - name: Check JavaScript syntax
         run: |
           node --check data/adaptive-engine.js
