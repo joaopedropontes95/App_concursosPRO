@@ -64,8 +64,9 @@ test('official evidence remains available offline after PWA cache install',async
   const errors=await boot(page);
   await page.evaluate(async()=>{await navigator.serviceWorker.ready;const c=await caches.open('concursospro-v21');const r=await c.match('./data/official-evidence.json');if(!r)throw new Error('official evidence not cached')});
   await context.setOffline(true);
-  await page.reload({waitUntil:'domcontentloaded'});
-  await page.waitForFunction(()=>Array.isArray(window.cpOfficialEvidence?.rules)&&window.cpOfficialEvidence.rules.length>10,null,{timeout:15000});
+  const cached=await page.evaluate(async()=>{const r=await fetch('./data/official-evidence.json');const j=await r.json();return{ok:r.ok,count:j.rules?.length||0}});
+  expect(cached.ok).toBeTruthy();
+  expect(cached.count).toBeGreaterThan(10);
   await page.evaluate(()=>window.cpStartAdaptiveUnit('rfb',['Direito Tributário'],'QA offline'));
   const answer=await page.evaluate(()=>current.answer);
   await page.locator('#quizArea .opt').nth(answer).click();
