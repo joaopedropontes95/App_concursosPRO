@@ -1,0 +1,163 @@
+{
+  "version": "2026.09.09-v1",
+  "policy": "A explicação usa primeiro o comentário específico da questão e o complementa com fundamento oficial quando houver correspondência segura. A fonte oficial não transforma questão adaptada em questão oficial.",
+  "rules": [
+    {
+      "id": "cf_controle_externo",
+      "subjects": ["Controle Externo", "Direito Constitucional"],
+      "keywords": ["tribunal de contas", "tcu", "controle externo", "parecer prévio", "fiscalização contábil", "fiscalização financeira", "fiscalização orçamentária"],
+      "title": "Constituição Federal de 1988",
+      "basis": "arts. 70 a 75",
+      "summary": "A Constituição disciplina o controle externo, suas competências e a atuação dos Tribunais de Contas.",
+      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
+    },
+    {
+      "id": "cf_administracao",
+      "subjects": ["Direito Administrativo", "Administração Pública", "Direito Constitucional"],
+      "keywords": ["legalidade", "impessoalidade", "moralidade", "publicidade", "eficiência", "administração pública", "concurso público", "servidor público"],
+      "title": "Constituição Federal de 1988",
+      "basis": "art. 37 e seguintes",
+      "summary": "A Constituição estabelece os princípios e regras gerais aplicáveis à Administração Pública.",
+      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
+    },
+    {
+      "id": "cf_orcamento",
+      "subjects": ["AFO", "Economia e Finanças Públicas"],
+      "keywords": ["ppa", "ldo", "loa", "orçamento", "crédito adicional", "emenda", "diretrizes orçamentárias"],
+      "title": "Constituição Federal de 1988",
+      "basis": "arts. 165 a 169",
+      "summary": "A Constituição organiza o sistema de planejamento e orçamento público, incluindo PPA, LDO e LOA.",
+      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
+    },
+    {
+      "id": "lei_9784",
+      "subjects": ["Direito Administrativo", "Processo Administrativo"],
+      "keywords": ["ato administrativo", "anulação", "revogação", "processo administrativo", "motivação", "competência", "delegação", "avocação"],
+      "title": "Lei nº 9.784/1999",
+      "basis": "processo administrativo federal; arts. 2º, 11 a 17 e 50 a 55, conforme o tema",
+      "summary": "A Lei nº 9.784/1999 disciplina princípios, competência, motivação, anulação e revogação no processo administrativo federal.",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/l9784.htm"
+    },
+    {
+      "id": "lei_14133",
+      "subjects": ["Direito Administrativo", "Administração Pública"],
+      "keywords": ["licitação", "contrato administrativo", "pregão", "dispensa", "inexigibilidade", "contratação pública"],
+      "title": "Lei nº 14.133/2021",
+      "basis": "Lei de Licitações e Contratos Administrativos",
+      "summary": "A Lei nº 14.133/2021 disciplina princípios, fases, modalidades, contratação direta e execução dos contratos administrativos.",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14133.htm"
+    },
+    {
+      "id": "lrf",
+      "subjects": ["AFO", "Economia e Finanças Públicas", "Contabilidade Pública"],
+      "keywords": ["responsabilidade fiscal", "limite de despesa", "despesa com pessoal", "renúncia de receita", "resultado primário", "rcl", "restos a pagar"],
+      "title": "Lei Complementar nº 101/2000 — LRF",
+      "basis": "Lei de Responsabilidade Fiscal",
+      "summary": "A LRF estabelece normas de finanças públicas voltadas à responsabilidade na gestão fiscal, metas, limites e transparência.",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp101.htm"
+    },
+    {
+      "id": "lei_4320",
+      "subjects": ["AFO", "Contabilidade Pública", "Contabilidade Geral e Pública"],
+      "keywords": ["receita orçamentária", "despesa orçamentária", "empenho", "liquidação", "pagamento", "crédito suplementar", "crédito especial", "crédito extraordinário"],
+      "title": "Lei nº 4.320/1964",
+      "basis": "normas gerais de Direito Financeiro",
+      "summary": "A Lei nº 4.320/1964 contém regras gerais sobre orçamento, receitas, despesas, créditos adicionais e execução orçamentária.",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/l4320.htm"
+    },
+    {
+      "id": "mcasp",
+      "subjects": ["Contabilidade Pública", "Contabilidade Geral e Pública", "Contabilidade"],
+      "keywords": ["pcasp", "depreciação", "impairment", "provisão", "passivo contingente", "demonstrações contábeis", "variação patrimonial", "regime de competência", "consolidação"],
+      "title": "Manual de Contabilidade Aplicada ao Setor Público — MCASP, 11ª edição",
+      "basis": "Secretaria do Tesouro Nacional",
+      "summary": "O MCASP orienta reconhecimento, mensuração, evidenciação e procedimentos orçamentários e patrimoniais no setor público.",
+      "url": "https://www.gov.br/tesouronacional/pt-br/contabilidade-e-custos/manuais/manual-de-contabilidade-aplicada-ao-setor-publico-mcasp-1"
+    },
+    {
+      "id": "ctn",
+      "subjects": ["Direito Tributário"],
+      "keywords": ["tributo", "imposto", "taxa", "contribuição de melhoria", "obrigação tributária", "crédito tributário", "lançamento", "decadência", "prescrição", "isenção", "imunidade"],
+      "title": "Lei nº 5.172/1966 — Código Tributário Nacional",
+      "basis": "CTN",
+      "summary": "O CTN disciplina o sistema tributário, obrigação e crédito tributários, lançamento, suspensão, extinção e exclusão do crédito.",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/l5172compilado.htm"
+    },
+    {
+      "id": "regulamento_aduaneiro",
+      "subjects": ["Legislação Aduaneira"],
+      "keywords": ["aduaneiro", "despacho aduaneiro", "valoração aduaneira", "trânsito aduaneiro", "admissão temporária", "drawback", "classificação fiscal", "origem"],
+      "title": "Decreto nº 6.759/2009 — Regulamento Aduaneiro",
+      "basis": "Regulamento da administração das atividades aduaneiras",
+      "summary": "O Regulamento Aduaneiro consolida regras sobre controle aduaneiro, despacho, regimes especiais, tributação e fiscalização do comércio exterior.",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2009/decreto/d6759.htm"
+    },
+    {
+      "id": "lgpd",
+      "subjects": ["LGPD", "Governança de Dados", "Segurança da Informação"],
+      "keywords": ["dado pessoal", "dado pessoal sensível", "tratamento", "controlador", "operador", "encarregado", "base legal", "consentimento", "direito do titular", "incidente de segurança"],
+      "title": "Lei nº 13.709/2018 — LGPD",
+      "basis": "Lei Geral de Proteção de Dados Pessoais",
+      "summary": "A LGPD define fundamentos, princípios, bases legais, agentes de tratamento e direitos dos titulares de dados pessoais.",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+    },
+    {
+      "id": "lei_anticorrupcao",
+      "subjects": ["Integridade", "Administração Pública"],
+      "keywords": ["integridade", "anticorrupção", "programa de integridade", "ato lesivo", "responsabilização de pessoa jurídica", "acordo de leniência"],
+      "title": "Lei nº 12.846/2013",
+      "basis": "responsabilização administrativa e civil de pessoas jurídicas por atos contra a Administração Pública",
+      "summary": "A Lei Anticorrupção trata da responsabilização objetiva de pessoas jurídicas por atos lesivos contra a Administração Pública.",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/lei/l12846.htm"
+    },
+    {
+      "id": "decreto_integridade",
+      "subjects": ["Integridade", "Administração Pública"],
+      "keywords": ["programa de integridade", "due diligence", "canal de denúncia", "terceiros", "tone at the top", "alta direção"],
+      "title": "Decreto nº 11.129/2022",
+      "basis": "regulamentação da Lei nº 12.846/2013",
+      "summary": "O Decreto nº 11.129/2022 regulamenta a Lei Anticorrupção e traz parâmetros para avaliação de programas de integridade.",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/decreto/d11129.htm"
+    },
+    {
+      "id": "bcb_inflacao",
+      "contest": "bacen",
+      "subjects": ["Economia", "Política Monetária"],
+      "keywords": ["inflação", "selic", "política monetária", "meta de inflação", "copom", "juros", "expectativas", "hiato do produto", "transmissão monetária"],
+      "title": "Banco Central do Brasil — Controle da Inflação",
+      "basis": "material institucional sobre política monetária e regime de metas",
+      "summary": "O Banco Central explica os instrumentos, objetivos e mecanismos de transmissão da política monetária no regime de metas para a inflação.",
+      "url": "https://www.bcb.gov.br/controleinflacao"
+    },
+    {
+      "id": "bcb_sfn",
+      "contest": "bacen",
+      "subjects": ["Conhecimentos Bancários"],
+      "keywords": ["sfn", "sistema financeiro nacional", "instituição financeira", "risco bancário", "liquidez", "capital", "intermediação financeira"],
+      "title": "Banco Central do Brasil — Sistema Financeiro Nacional",
+      "basis": "estrutura e funcionamento do SFN",
+      "summary": "O Banco Central apresenta a organização do Sistema Financeiro Nacional e os papéis de seus órgãos e instituições.",
+      "url": "https://www.bcb.gov.br/estabilidadefinanceira/sfn"
+    },
+    {
+      "id": "tcu_auditoria",
+      "contest": "tcu",
+      "subjects": ["Auditoria Governamental", "Controle Externo"],
+      "keywords": ["auditoria", "evidência de auditoria", "achado", "materialidade", "risco de auditoria", "auditoria operacional", "economicidade", "eficiência", "eficácia", "efetividade"],
+      "title": "Tribunal de Contas da União — Normas e orientações de auditoria",
+      "basis": "referenciais de auditoria do TCU",
+      "summary": "Os referenciais do TCU orientam planejamento, evidências, achados, risco, materialidade e comunicação de auditorias no setor público.",
+      "url": "https://portal.tcu.gov.br/controle-externo/normas-e-orientacoes/"
+    },
+    {
+      "id": "anpd_regulacao",
+      "contest": "anpd",
+      "subjects": ["LGPD", "Regulação", "Governança de Dados", "Segurança da Informação"],
+      "keywords": ["anpd", "regulamento", "fiscalização", "sanção", "proteção de dados", "incidente"],
+      "title": "Autoridade Nacional de Proteção de Dados — Legislação e atos normativos",
+      "basis": "regulamentação e orientações oficiais da ANPD",
+      "summary": "A ANPD publica regulamentos, guias e orientações que complementam a aplicação prática da LGPD.",
+      "url": "https://www.gov.br/anpd/pt-br/acesso-a-informacao/institucional/atos-normativos"
+    }
+  ]
+}
