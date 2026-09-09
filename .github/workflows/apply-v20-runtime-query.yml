@@ -1,0 +1,30 @@
+name: Apply v20 runtime query
+on:
+  push:
+    branches: [fix/question-quality-tcesp-v20]
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/question-quality-tcesp-v20
+      - name: Bump app-stability runtime query
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('app.html')
+          text=p.read_text()
+          text=text.replace('./data/app-stability.js?b=19','./data/app-stability.js?b=20')
+          p.write_text(text)
+          PY
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- app.html; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add app.html
+          git commit -m 'chore: bust app stability cache for v20'
+          git push origin HEAD:fix/question-quality-tcesp-v20
