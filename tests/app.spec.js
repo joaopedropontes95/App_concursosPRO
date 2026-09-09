@@ -25,7 +25,7 @@ async function assertNoErrors(errors, context) {
 
 test('boots and all navigation views open without JS errors', async ({ page }) => {
   const errors = await boot(page);
-  for (const label of ['Início', 'TCESP 2026', 'Questões', 'Meus erros', 'Minhas trilhas', 'Fontes', 'Dados']) {
+  for (const label of ['Início', 'Questões', 'Meus erros', 'Minhas trilhas', 'Fontes', 'Dados']) {
     await page.getByRole('button', { name: new RegExp(label, 'i') }).click();
     await page.waitForTimeout(80);
   }
@@ -154,7 +154,7 @@ test('PWA remains fully dynamic when reloaded offline', async ({ page, context }
   await page.evaluate(() => window.cpOpenTrack('bacen'));
   await page.getByRole('button', { name: /Início/i }).click();
   await expect(page.locator('#cpHomeHero h2')).toContainText('Banco Central');
-  await page.evaluate(async () => { await navigator.serviceWorker.ready; const c=await caches.open('concursospro-v20'); await c.match('./app.html'); });
+  await page.evaluate(async () => { await navigator.serviceWorker.ready; const c=await caches.open('concursospro-v22'); await c.match('./app.html'); });
   await context.setOffline(true);
   await page.reload({ waitUntil: 'domcontentloaded' });
   await page.waitForFunction(() => typeof window.cpOpenTrack === 'function' && typeof window.cpStartAdaptiveUnit === 'function', null, { timeout: 10000 });
