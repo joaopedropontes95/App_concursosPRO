@@ -7,10 +7,10 @@ async function boot(page){
   await page.waitForURL(/app\.html/,{timeout:15000});
   await page.waitForFunction(() =>
     typeof window.cpOpenTrack==='function' &&
+    typeof window.cpOpenTCESP2026==='function' &&
     typeof window.cpStartUnit==='function' &&
     typeof window.cpNormalizeQuestions==='function' &&
     typeof window.cpQuestionAnswerDistribution==='function' &&
-    window.__cpTCESPBridge===true &&
     window.__cpStableAdaptiveStart===true
   ,null,{timeout:20000});
   await page.waitForTimeout(1200);
@@ -48,9 +48,9 @@ test('answer-order normalization is idempotent and preserves stable keys',async(
   expect(result.invalid).toBe(0);
 });
 
-test('TCESP 2026 nav opens modern trail with specialty selector',async({page})=>{
+test('TCESP modern trail remains available without a dedicated sidebar shortcut',async({page})=>{
   const errors=await boot(page);
-  await page.getByRole('button',{name:/TCESP 2026/i}).click();
+  await page.evaluate(()=>window.cpOpenTCESP2026());
   await expect(page.locator('#concursos')).toBeVisible();
   await expect(page.locator('#concursos h2').first()).toContainText('TCESP');
   const selector=page.locator('#cpTcespSpecialtySelect');

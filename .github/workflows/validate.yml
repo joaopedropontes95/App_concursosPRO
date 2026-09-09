@@ -21,11 +21,14 @@ jobs:
         run: node scripts/validate-v19-architecture.mjs
       - name: Validate official answer evidence
         run: node scripts/validate-official-evidence.mjs
+      - name: Validate v22 navigation filters and realism
+        run: node scripts/validate-v22-ui.mjs
       - name: Check JavaScript syntax
         run: |
           node --check data/adaptive-engine.js
           node --check data/answer-flow-guard.js
           node --check data/app-stability.js
+          node --check data/ui-v22.js
           node --check data/bank-loader-v2.js
           node --check data/discursive-engine.js
           node --check data/performance-dashboard.js

@@ -28,8 +28,9 @@ for(const src of runtimes){
 if(sw.includes('RUNTIME_TAGS')||sw.includes("replace('</body>'")||sw.includes('injectApp(')){
   throw new Error('Service Worker voltou a injetar runtimes no HTML');
 }
-if(!sw.includes("const CACHE='concursospro-v21'")) throw new Error('cache PWA não está em v21');
+if(!sw.includes("const CACHE='concursospro-v22'")) throw new Error('cache PWA não está em v22');
 if(!sw.includes('./data/app-stability.js?b=20')) throw new Error('Service Worker não pré-cacheia app-stability v20');
+if(!sw.includes('./data/ui-v22.js?b=22')) throw new Error('Service Worker não pré-cacheia UI v22');
 if(!sw.includes('./data/official-evidence.json')) throw new Error('Service Worker não pré-cacheia catálogo de evidências oficiais');
 
 const tcu=(tracks.tcu||{}).units||[];
@@ -40,4 +41,4 @@ if(mock.id!=='simulado'||mock.mode!=='mock'||mock.title!=='Simulado objetivo'){
   throw new Error('nó de simulado do TCU está com configuração inesperada');
 }
 
-console.log('Arquitetura direta OK: SW v21, catálogo oficial offline e TCU com simulado objetivo.');
+console.log('Arquitetura direta OK: SW v22, UI v22 offline, catálogo oficial offline e TCU com simulado objetivo.');

@@ -110,10 +110,10 @@ test('generic Questions section also receives grounded explanation after click',
 
 test('both general and contest official evidence remain available offline',async({page,context})=>{
   const errors=await boot(page);
-  await page.evaluate(async()=>{await navigator.serviceWorker.ready;const c=await caches.open('concursospro-v21');for(const p of ['./data/official-evidence.json','./data/contest-official-evidence.json']){const r=await c.match(p);if(!r)throw new Error(`${p} not cached`)}});
+  await page.evaluate(async()=>{await navigator.serviceWorker.ready;const c=await caches.open('concursospro-v22');for(const p of ['./data/official-evidence.json','./data/contest-official-evidence.json']){const r=await c.match(p);if(!r)throw new Error(`${p} not cached`)}});
   await context.setOffline(true);
   const cached=await page.evaluate(async()=>{
-    const c=await caches.open('concursospro-v21');
+    const c=await caches.open('concursospro-v22');
     const a=await c.match('./data/official-evidence.json');
     const b=await c.match('./data/contest-official-evidence.json');
     if(!a||!b)throw new Error('official evidence missing from Cache API while offline');
